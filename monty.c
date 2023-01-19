@@ -10,6 +10,11 @@
 
 #include <unistd.h>
 
+/**
+ * isViable - checks if the input is one of 7 options
+ * @str: the input
+ * Return: a new value
+ */
 char *isViable(char *str)
 {
 	char *res = "";
@@ -32,22 +37,75 @@ char *isViable(char *str)
 	return (res);
 }
 
+/**
+ * get_func - calls the appropriate function depending on the input
+ * @str: the input that identifies the appropriate function
+ * @head: pointer to pointer to topmost element of stack
+ * @val: string value of the value we want to push
+ * @lines: instruction line
+ * Return: nothing
+ */
 void get_func(char *str, stack_t **head, char *val, int lines)
 {
 	if (strcmp(str, "push") == 0)
 		push(head, val, lines);
-	if (strcmp(str,"pall") == 0)
-	{
-		printf("printing");
+	if (strcmp(str, "pall") == 0)
 		pall(*head);
-	}
+	if (strcmp(str, "pint") == 0)
+		pint(*head, lines);
+	if (strcmp(str, "pop") == 0)
+		pop(head, lines);
+	if (strcmp(str, "swap") == 0)
+		swap(head, lines);
+	if (strcmp(str, "add") == 0)
+		add(head, lines);
+	if (strcmp(str, "nop") == 0)
+	{}
 }
 
+/**
+ * calling - the main thing really
+ * @buff: what is read from the monty file
+ * Return: 0 always
+ */
+int calling(char *buff)
+{
+	stack_t *head = NULL;
+	char *token, *str;
+	int line = 0;
+
+	token = strtok(buff, "\n\t\a\r ;:");
+	while (token != NULL)
+	{
+		str = isViable(token);
+		if (strcmp(str, "") != 0)
+		{
+			token = strtok(NULL, "\n\t\a\r ;:");
+			get_func(str, &head, token, line);
+			line++;
+			if (strcmp(str, "push") == 0)
+				token = strtok(NULL, "\n\t\a\r ;:");
+		}
+		else if (strcmp(str, "") == 0)
+		{
+			printf("L%d: unknown instruction %s\n", line, token);
+			exit(EXIT_FAILURE);
+	}
+	}
+	return (0);
+}
+
+
+/**
+ * main - the main function
+ * @argc: the nuber of arguments it is taking
+ * @argv: the argument values
+ * Return: depends on the outcome
+ */
 int main(int argc, char **argv)
 {
-	int file, chars, lines;
-	char *buff, *token, *str;
-	stack_t *head = NULL;
+	int file, chars;
+	char *buff;
 
 	if (argc <= 1 || argc > 2)
 	{
@@ -76,29 +134,6 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(buff, "\n\t\a\r ;:");
-	lines = 0;
-	while (token != NULL)
-	{
-		str = isViable(token);
-		if (strcmp(str, "") != 0)
-		{
-			token = strtok(NULL, "\n\t\a\r ;:");
-			get_func(str, &head, token, lines);
-			lines++;
-		}
-		if (strcmp(str, "") == 0)
-		{
-			printf("L%d: unknown instruction %s\n", lines, token);
-			exit(EXIT_FAILURE);
-		}
-		
-				
-		/*token = strtok(buff, "\n");*/
-
-		printf("line: %d token: %s\n", lines, token);
-		token = strtok(NULL, "\n\t\a\r ;:");
-		/*lines++;*/
-	}
+	calling(buff);
 	return (0);
 }
