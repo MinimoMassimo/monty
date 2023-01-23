@@ -1,6 +1,8 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 /**
  * push - adds a new node at the beggining of a dlistint_t list
@@ -13,12 +15,19 @@ stack_t *push(stack_t **head, char *val, int lines)
 {
 	stack_t *new_node;
 	int n;
+	size_t i = 0;
 
 	n = atoi(val);
-	if (n == 0 || val == NULL)
+
+	for (; i < strlen(val); i++)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", lines);
-		exit(EXIT_FAILURE);
+		if (val[0] == '-')
+			continue;
+		if (val[i] > '9' || val[i] < '0')
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", lines);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	if (head == NULL)

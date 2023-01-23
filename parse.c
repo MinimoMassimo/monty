@@ -31,9 +31,9 @@ int parse_line(char *line, int line_num, stack_t **head)
 			add(head, line_num);
 		else if (strcmp(token, "nop") == 0)
 		{}
-		else if(strcmp(token, "div") == 0)
+		else if (strcmp(token, "div") == 0)
 			div_stack(head, line_num);
-		else if(strcmp(token, "sub") == 0)
+		else if (strcmp(token, "sub") == 0)
 			sub(head, line_num);
 		else if (strcmp(token, "mul") == 0)
 			mul(head, line_num);
@@ -41,6 +41,8 @@ int parse_line(char *line, int line_num, stack_t **head)
 			mod(head, line_num);
 		else if (strcmp(token, "pchar") == 0)
 			pchar(*head, line_num);
+		else if (strcmp(token, "pstr") == 0)
+			pstr(*head);
 		else if (x != NULL)
 		{
 			if (x - strtok(NULL, "\n\t\a\r ;:") + 1 == 1)
