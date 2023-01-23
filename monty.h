@@ -37,4 +37,6 @@ int pint(stack_t *h, int line);
 int pop(stack_t **head, int line);
 int swap(stack_t **head, int line);
 int add(stack_t **head, int line);
+void free_stack(stack_t *head);
+int parse_line(char *line, int line_num, stack_t **head);
 #endif
