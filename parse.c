@@ -7,10 +7,12 @@ int parse_line(char *line, int line_num, stack_t **head)
 {
 	char *token;
 	unsigned int i = 0;
+	char *x = 0;
 
 	token = strtok(line, "\n\t\a\r :;");
 	while (token && i < 1)
 	{
+		x = strchr(token, '#');
 		i++;
 		if (strcmp(token, "push") == 0)
 		{
@@ -29,6 +31,21 @@ int parse_line(char *line, int line_num, stack_t **head)
 			add(head, line_num);
 		else if (strcmp(token, "nop") == 0)
 		{}
+		else if(strcmp(token, "div") == 0)
+			div_stack(head, line_num);
+		else if(strcmp(token, "sub") == 0)
+			sub(head, line_num);
+		else if (strcmp(token, "mul") == 0)
+			mul(head, line_num);
+		else if (strcmp(token, "mod") == 0)
+			mod(head, line_num);
+		else if (strcmp(token, "pchar") == 0)
+			pchar(*head, line_num);
+		else if (x != NULL)
+		{
+			if (x - strtok(NULL, "\n\t\a\r ;:") + 1 == 1)
+			{}
+		}
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, token);

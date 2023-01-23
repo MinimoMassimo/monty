@@ -38,5 +38,10 @@ int pop(stack_t **head, int line);
 int swap(stack_t **head, int line);
 int add(stack_t **head, int line);
 void free_stack(stack_t *head);
+int sub(stack_t **head, int line);
+int mul(stack_t **head, int line);
+int mod(stack_t **head, int line);
+int div_stack(stack_t **head, int line);
+int pchar(stack_t *h, int line);
 int parse_line(char *line, int line_num, stack_t **head);
 #endif
