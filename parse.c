@@ -31,7 +31,7 @@ int parse_line(char *line, int line_num, stack_t **head)
 		{}
 		else
 		{
-			printf("L%d: unknown instruction %s\n", line_num, token);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, token);
 			exit(EXIT_FAILURE);
 		}
 

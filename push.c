@@ -17,7 +17,7 @@ stack_t *push(stack_t **head, char *val, int lines)
 	n = atoi(val);
 	if (n == 0 || val == NULL)
 	{
-		printf("L%d: usage: push integer\n", lines);
+		fprintf(stderr, "L%d: usage: push integer\n", lines);
 		exit(EXIT_FAILURE);
 	}
 

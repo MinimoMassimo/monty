@@ -14,7 +14,7 @@ int add(stack_t **head, int line)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line);
+		fprintf("L%d: can't add, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*head)->next;

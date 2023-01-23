@@ -13,7 +13,7 @@ int pint(stack_t *h, int line)
 {
 	if (h == NULL)
 	{
-		printf("L%d: can't pint, stack empty\n", line);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", h->n);

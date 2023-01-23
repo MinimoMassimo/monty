@@ -20,20 +20,20 @@ int main(int ac, char **av)
 
 	if (ac <= 1 || ac > 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(av[1], "r");
 	if (file == NULL)
 	{
-		printf("Error: Can't open file %s\n", av[1]);
+		fprintf("Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 
 	buffer = (char *)malloc(sizeof(bufsize * sizeof(char)));
 	if (buffer == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	s = fgets(buffer, bufsize, file);

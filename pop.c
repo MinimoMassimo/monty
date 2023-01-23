@@ -14,7 +14,7 @@ int pop(stack_t **head, int line)
 
 	if (*head == NULL)
 	{
-		printf("L%d: can't pop an empty stack\n", line);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;

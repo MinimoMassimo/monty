@@ -14,7 +14,7 @@ int swap(stack_t **head, int line)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't swap, stack too short", line);
+		fprintf(stderr, "L%d: can't swap, stack too short", line);
 		exit(EXIT_FAILURE);
 	}
 	A = *head;
