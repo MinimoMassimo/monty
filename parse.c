@@ -17,6 +17,11 @@ int parse_line(char *line, int line_num, stack_t **head)
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, "\n\t\a\r ;:");
+			if (token == NULL)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_num);
+				exit(EXIT_FAILURE);
+			}
 			push(head, token, line_num);
 		}
 		else if (strcmp(token, "pall") == 0)
