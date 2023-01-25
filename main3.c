@@ -43,8 +43,9 @@ int main(int ac, char **av)
 		parse_line(buffer, line_num, &head, mem_counter);
 		s = fgets(buffer, bufsize, file);
 	}
-	free_stack(head, mem_counter);
 	fclose(file);
-	/*printf("Memory counter (should be 0): %d\n", mem_counter);*/
+	free_stack(head, mem_counter);
+	free(buffer);
+	printf("Memory counter (should be 0): %d\n", mem_counter);
 	return (0);
 }
