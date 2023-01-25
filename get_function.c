@@ -3,7 +3,7 @@
 
 /**
  * get_func - selects correct function
- * @token: the instruction 
+ * @token: the instruction
  * Return: pointer to correct function
  */
 void (*get_func(char *token))(stack_t **head, unsigned int line_num)
@@ -18,11 +18,11 @@ void (*get_func(char *token))(stack_t **head, unsigned int line_num)
 		{"add", add},
 		{"sub", sub},
 		{"mul", mul},
-                {"mod", mod},
-                {"div", div_stack},
-                {"pchar", pchar},
-                {"pstr", pstr},
-                {NULL, NULL}
+		{"mod", mod},
+		{"div", div_stack},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		{NULL, NULL}
 	};
 
 	while (instructions[i].f != NULL)

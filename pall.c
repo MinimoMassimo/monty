@@ -3,7 +3,8 @@
 #include <stddef.h>
 /**
  * pall - prints all elements of stack
- * @h: pointer to the top stack
+ * @head: pointer to the top stack
+ * @line: unused
  * Return: nothing
  */
 void pall(stack_t **head, __attribute__((unused)) unsigned int line)
@@ -11,7 +12,7 @@ void pall(stack_t **head, __attribute__((unused)) unsigned int line)
 	stack_t *h = *head;
 
 	if (h == NULL)
-		return ;
+		return;
 	while (h)
 	{
 		printf("%d\n", h->n);

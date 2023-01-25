@@ -12,7 +12,7 @@
  * @mem_counter: keeps track of number of mallocs and frees
  * Return: address of the new element or NULL if failed
  */
-stack_t *push(stack_t **head, char *val, int unsigned lines, int mem_counter)
+stack_t *push(stack_t **head, char *val, unsigned int lines, int mem_counter)
 {
 	stack_t *new_node;
 	int n;

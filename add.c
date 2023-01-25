@@ -6,7 +6,7 @@
  * add - sums top two elements of stack
  * @head: pointer to pointer to head of stack
  * @line: instruction line
- * Return: nothing 
+ * Return: nothing
  */
 void add(stack_t **head, unsigned int line)
 {

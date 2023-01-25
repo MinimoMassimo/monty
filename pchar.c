@@ -6,13 +6,14 @@
 
 /**
  * pchar - prints top element of stack
- * @h: pointer to the top stack
+ * @head: pointer to the top stack
  * @line: the line of instruction
  * Return: 0 or 1
  */
 void pchar(stack_t **head, unsigned int line)
 {
 	stack_t *h = *head;
+
 	if (h == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);

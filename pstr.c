@@ -4,7 +4,8 @@
 
 /**
  * pstr - prints all elements of stack as string
- * @h: pointer to the top stack
+ * @head: pointer to the top stack
+ * @line: unused
  * Return: nothing
  */
 void pstr(stack_t **head, __attribute__((unused)) unsigned int line)
