@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	char *buffer;
 	char *s;
 	FILE *file;
-	int line_num = 0;
+	unsigned int line_num = 0, mem_counter = 0;
 	stack_t *head = NULL;
 
 	if (ac <= 1 || ac > 2)
@@ -40,10 +40,13 @@ int main(int ac, char **av)
 	while (s != NULL)
 	{
 		line_num++;
-		parse_line(buffer, line_num, &head);
+		parse_line(buffer, line_num, &head, mem_counter);
 		s = fgets(buffer, bufsize, file);
 	}
-	free_stack(head);
+	free_stack(head, mem_counter);
 	fclose(file);
+	/*
+	printf("Memory counter (should be 0): %d\n", mem_counter); 
+	*/
 	return (0);
 }

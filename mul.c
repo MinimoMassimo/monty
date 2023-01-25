@@ -6,9 +6,9 @@
  * mul - multiplies top two elements of stack
  * @head: pointer to pointer to head of stack
  * @line: instruction line
- * Return: 0
+ * Return: nothing
  */
-int mul(stack_t **head, int line)
+void mul(stack_t **head, unsigned int line)
 {
 	stack_t *temp;
 
@@ -21,5 +21,4 @@ int mul(stack_t **head, int line)
 	temp->n = temp->prev->n * temp->n;
 	*head = temp;
 	free(temp->prev);
-	return (0);
 }

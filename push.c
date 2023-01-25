@@ -9,9 +9,10 @@
  * @head: pointer to pointer to head of list
  * @val: value of the new node
  * @lines: line of instruction
+ * @mem_counter: keeps track of number of mallocs and frees
  * Return: address of the new element or NULL if failed
  */
-stack_t *push(stack_t **head, char *val, int lines)
+stack_t *push(stack_t **head, char *val, int unsigned lines, int mem_counter)
 {
 	stack_t *new_node;
 	int n;
@@ -36,7 +37,7 @@ stack_t *push(stack_t **head, char *val, int lines)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return (NULL);
-
+	mem_counter++;
 	if (*head == NULL)
 	{
 		*head = new_node;

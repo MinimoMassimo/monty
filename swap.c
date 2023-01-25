@@ -6,9 +6,9 @@
  * swap - swaps the first two elements of the stack
  * @head: pointer to pointer of topmost element
  * @line: instruction line
- * Return: always 1
+ * Return: nothing
  */
-int swap(stack_t **head, int line)
+void swap(stack_t **head, unsigned int line)
 {
 	stack_t *B, *A;
 
@@ -26,5 +26,4 @@ int swap(stack_t **head, int line)
 	B->next = A;
 	B->prev = NULL;
 	*head = B;
-	return (1);
 }

@@ -1,19 +1,19 @@
 #include "monty.h"
 #include <stdio.h>
 #include <stddef.h>
+
 /**
  * pstr - prints all elements of stack as string
  * @h: pointer to the top stack
- * Return : the num of nodes
+ * Return: nothing
  */
-int pstr(stack_t *h)
+void pstr(stack_t **head, __attribute__((unused)) unsigned int line)
 {
-	int nodes = 0;
+	stack_t *h = *head;
 
 	if (h == NULL)
 	{
 		printf("\n");
-		return (nodes);
 	}
 	while (h)
 	{
@@ -21,8 +21,6 @@ int pstr(stack_t *h)
 			break;
 		printf("%c", h->n);
 		h = h->next;
-		nodes++;
 	}
 	printf("\n");
-	return (nodes);
 }

@@ -4,19 +4,17 @@
 /**
  * pall - prints all elements of stack
  * @h: pointer to the top stack
- * Return : the num of nodes
+ * Return: nothing
  */
-int pall(stack_t *h)
+void pall(stack_t **head, __attribute__((unused)) unsigned int line)
 {
-	int nodes = 0;
+	stack_t *h = *head;
 
 	if (h == NULL)
-		return (0);
+		return ;
 	while (h)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
-		nodes++;
 	}
-	return (nodes);
 }

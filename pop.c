@@ -6,9 +6,9 @@
  * pop - removes topmost element of the stack
  * @head: pointer to pointer of topmost element
  * @line: the line of instruction
- * Return: 1 or 0
+ * Return: nothing
  */
-int pop(stack_t **head, int line)
+void pop(stack_t **head, unsigned int line)
 {
 	stack_t *temp;
 
@@ -22,5 +22,4 @@ int pop(stack_t **head, int line)
 	free(temp);
 	if (*head != NULL)
 		(*head)->prev = NULL;
-	return (1);
 }

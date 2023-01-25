@@ -1,6 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdlib.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -31,18 +33,19 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int pall(stack_t *h);
-stack_t *push(stack_t **head, char *val, int lines);
-int pint(stack_t *h, int line);
-int pop(stack_t **head, int line);
-int swap(stack_t **head, int line);
-int add(stack_t **head, int line);
-void free_stack(stack_t *head);
-int sub(stack_t **head, int line);
-int mul(stack_t **head, int line);
-int mod(stack_t **head, int line);
-int div_stack(stack_t **head, int line);
-int pchar(stack_t *h, int line);
-int pstr(stack_t *h);
-int parse_line(char *line, int line_num, stack_t **head);
+void pall(stack_t **h, unsigned int line);
+stack_t *push(stack_t **head, char *val, unsigned int lines, int mem_counter);
+void pint(stack_t **h, unsigned int line);
+void pop(stack_t **head, unsigned int line);
+void swap(stack_t **head, unsigned int line);
+void add(stack_t **head, unsigned int line);
+void free_stack(stack_t *head, int mem_counter);
+void sub(stack_t **head, unsigned int line);
+void mul(stack_t **head, unsigned int line);
+void mod(stack_t **head, unsigned int line);
+void div_stack(stack_t **head, unsigned int line);
+void pchar(stack_t **h, unsigned int line);
+void pstr(stack_t **h, unsigned int line);
+int parse_line(char *line, unsigned int line_num, stack_t **head, int mem_counter);
+void (*get_func(char *token))(stack_t **head, unsigned int line_num);
 #endif

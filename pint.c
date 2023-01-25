@@ -7,15 +7,15 @@
  * pint - prints top element of stack
  * @h: pointer to the top stack
  * @line: the line of instruction
- * Return: 0 or 1
+ * Return: nothing
  */
-int pint(stack_t *h, int line)
+void pint(stack_t **head, unsigned int line)
 {
+	stack_t *h = *head;
 	if (h == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", h->n);
-	return (1);
 }

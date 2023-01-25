@@ -10,8 +10,9 @@
  * @line: the line of instruction
  * Return: 0 or 1
  */
-int pchar(stack_t *h, int line)
+void pchar(stack_t **head, unsigned int line)
 {
+	stack_t *h = *head;
 	if (h == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
@@ -23,5 +24,4 @@ int pchar(stack_t *h, int line)
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", h->n);
-	return (1);
 }
