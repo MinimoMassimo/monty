@@ -19,7 +19,6 @@ stack_t *push(stack_t **head, char *val, unsigned int lines, int mem_counter)
 	size_t i = 0;
 
 	n = atoi(val);
-
 	for (; i < strlen(val); i++)
 	{
 		if (val[0] == '-')
@@ -30,7 +29,6 @@ stack_t *push(stack_t **head, char *val, unsigned int lines, int mem_counter)
 			exit(EXIT_FAILURE);
 		}
 	}
-
 	if (head == NULL)
 		return (NULL);
 
