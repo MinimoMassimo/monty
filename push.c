@@ -36,7 +36,10 @@ stack_t *push(stack_t **head, char *val, unsigned int lines, int mem_counter)
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
+	{
+		free(new_node);
 		return (NULL);
+	}
 	mem_counter++;
 	if (*head == NULL)
 	{

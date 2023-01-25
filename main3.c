@@ -33,6 +33,7 @@ int main(int ac, char **av)
 	buffer = (char *)malloc(sizeof(bufsize * sizeof(char)));
 	if (buffer == NULL)
 	{
+		free(buffer);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
