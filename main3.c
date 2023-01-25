@@ -47,6 +47,6 @@ int main(int ac, char **av)
 	fclose(file);
 	free_stack(head, mem_counter);
 	free(buffer);
-	printf("Memory counter (should be 0): %d\n", mem_counter);
+	/*printf("Memory counter (should be 0): %d\n", mem_counter);*/
 	return (0);
 }
